@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Actualizar ticket{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Actualizar ticket</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" name="titulo" value="{{ ticket.titulo }}">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea class="form-control" id="descripcion" name="descripcion" rows="3">{{ ticket.descripcion }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="soporte" class="form-label">Soporte</label>
+                <select class="form-select" id="soporte" name="soporte">
+                    {% for soporte in soportes %}
+                        <option value="{{ soporte.pk }}" {% if soporte.pk == ticket.soporte.pk %}selected{% endif %}>{{ soporte.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </form>
+    </div>
+{% endblock %}

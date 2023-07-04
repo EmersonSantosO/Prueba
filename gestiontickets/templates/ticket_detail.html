@@ -1,0 +1,12 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Detalle del ticket{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Detalle del ticket</h1>
+        <h2>{{ ticket.titulo }}</h2>
+        <p>{{ ticket.descripcion }}</p>
+        <p>Soporte: {{ ticket.soporte }}</p>
+    </div>
+{% endblock %}

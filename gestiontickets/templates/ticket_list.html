@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Lista de tickets{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Lista de tickets</h1>
+        <ul>
+            {% for ticket in tickets %}
+                <li><a href="{{ ticket.get_absolute_url }}">{{ ticket.titulo }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
